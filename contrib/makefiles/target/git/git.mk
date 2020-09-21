@@ -6,9 +6,9 @@ BUILDTIME ?= $(shell date '+%Y%m%d-%H:%M:%S')
 MAJORVERSION ?= $(shell git describe --tags --abbrev=0 | sed s/v// |  awk -F. '{print $$1+1".0.0"}')
 MINORVERSION ?= $(shell git describe --tags --abbrev=0 | sed s/v// | awk -F. '{print $$1"."$$2+1".0"}')
 PATCHVERSION ?= $(shell git describe --tags --abbrev=0 | sed s/v// | awk -F. '{print $$1"."$$2"."$$3+1}')
-.PHONY: info
-.SILENT: info
-info:
+.PHONY: git
+.SILENT: git
+git:
 	- $(info VERSION = $(VERSION))
 	- $(info REVISION = $(REVISION))
 	- $(info BRANCH = $(BRANCH))
